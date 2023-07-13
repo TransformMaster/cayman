@@ -1,3 +1,4 @@
+---
 title: SEScore
 description: Stratified Error Synthesis Score
 ---
