@@ -1,123 +1,74 @@
+title: SEScore
+description: Stratified Error Synthesis Score
 ---
-layout: default
----
+<em>This is the project page for EMNLP 2022 paper: “Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis”.</em>
+## About SEScore
 
-Text can be **bold**, _ita1lic_, or ~~strikethrough~~.
+*SEScore* is a reference-based text-generation evaluation metric that requires no pre-human-annotated error data, described in our paper [Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis.](https://arxiv.org/abs/2210.05035) from EMNLP 2022. Reader can refer [https://research.google/pubs/pub51897/](https://research.google/pubs/pub51897/) for our WMT22 results!
 
-[Link to another page](./another-page.html).
+Its effectiveness over prior methods like BLEU, BERTScore, BARTScore, PRISM, COMET and BLEURT has been demonstrated on a diverse set of language generation tasks, including translation, captioning, and web text generation. and we are very excited to share it with you!
 
-There should be whitespace between paragraphs.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+#### Best unsupervised evaluation metric in WMT22 in all language pairs and domains!
+* * *
 
-# Header 1
+## How to use SEScore
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+We hosted our SEScore metric and running instructions on HuggingFace: [https://huggingface.co/spaces/xu1998hz/sescore](https://huggingface.co/spaces/xu1998hz/sescore)
 
-## Header 2
+### Installation and usage
+```
+pip install -r requirements.txt
+```
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Minimal example (evaluating English text generation)
+```python
+import evaluate
+sescore = evaluate.load("xu1998hz/sescore")
+score = sescore.compute(
+    references=['sescore is a simple but effective next-generation text evaluation metric'],
+    predictions=['sescore is simple effective text evaluation metric for next generation']
+)
+}
+```
+*SEScore* compares a list of references (gold translation/generated output examples) with a same-length list of candidate generated samples. Currently, the output range is learned and scores are most useful in relative ranking scenarios rather than absolute comparisons. We are producing a series of rescaling options to make absolute SEScore-based scaling more effective.
 
-### Header 3
+### Available pre-trained models
+Currently, the following language/model pairs are available:
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
+| Language | pretrained data | pretrained model link |
+|----------|-----------------|-----------------------|
+| English  | MT              | [xu1998hz/sescore_english_mt](https://huggingface.co/xu1998hz/sescore_english_mt) |
+| German   | MT              | [xu1998hz/sescore_german_mt](https://huggingface.co/xu1998hz/sescore_german_mt) |
+| English  | webNLG17        | [xu1998hz/sescore_english_webnlg17](https://huggingface.co/xu1998hz/sescore_english_webnlg17) |
+| English  | CoCo captions   | [xu1998hz/sescore_english_coco](https://huggingface.co/xu1998hz/sescore_english_coco) |
+
+Please contact repo maintainer Wenda Xu to add your models!
+
+## Limitations
+
+*SEScore* is trained on synthetic data in-domain. 
+Although this data is generated to simulate user-relevant errors like deletion and spurious insertion, it may be limited in its ability to simulate humanlike errors.
+Model applicability is domain-specific (e.g., CoCo caption-trained model will be better for captioning than MT-trained).
+
+We are in the process of producing and benchmarking general language-level *SEScore* variants.
+
+## Citation
+
+If you find our work useful, please cite the following:
+
+```bibtex
+@inproceedings{xu-etal-2022-not,
+  title={Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis},
+  author={Xu, Wenda and Tuan, Yi-lin and Lu, Yujie and Saxon, Michael and Li, Lei and Wang, William Yang},
+  booktitle ={Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing},
+  month={dec},
+  year={2022},
+  url={https://arxiv.org/abs/2210.05035}
 }
 ```
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+## Acknowledgements
 
-#### Header 4
+The work of the [COMET](https://github.com/Unbabel/COMET) maintainers at [Unbabel](https://duckduckgo.com/?t=ffab&q=unbabel&ia=web) has been instrumental in producing SEScore.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
