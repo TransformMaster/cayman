@@ -1,8 +1,10 @@
 ---
 layout: default
 title: SEScore
-description: Stratified Error Synthesis Score: Automatic Text Evaluation Metrics
+description: Stratified Error Synthesis Score - Automatic Text Evaluation Metrics -
 ---
+
+
 ## About SEScore
 
 Welcome to our project page, dedicated to our family of innovative reference-based text-generation evaluation metrics. 
