@@ -1,63 +1,25 @@
 ---
 layout: default
 title: SEScore
-description: Stratified Error Synthesis Score
+description: Stratified Error Synthesis Score: Automatic Text Evaluation Metrics
 ---
-<em>This is the project page for EMNLP 2022 paper: “Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis”.</em>
 ## About SEScore
 
+Welcome to our project page, dedicated to our family of innovative reference-based text-generation evaluation metrics. 
+
+### SEScore
 *SEScore* is a reference-based text-generation evaluation metric that requires no pre-human-annotated error data, described in our paper [Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis.](https://arxiv.org/abs/2210.05035) from EMNLP 2022. Reader can refer [https://research.google/pubs/pub51897/](https://research.google/pubs/pub51897/) for our WMT22 results!
 
 Its effectiveness over prior methods like BLEU, BERTScore, BARTScore, PRISM, COMET and BLEURT has been demonstrated on a diverse set of language generation tasks, including translation, captioning, and web text generation. and we are very excited to share it with you!
 
+### SEScore2
 
-#### Best unsupervised evaluation metric in WMT22 in all language pairs and domains!
+Building upon the solid foundation laid by SEScore, we then introduced SEScore2. This unsupervised model further innovates by synthesizing realistic model mistakes through the perturbation of sentences retrieved from a corpus. A key strength of SEScore2 lies in its flexibility to be extended to numerous languages, while simultaneously offering trustworthy severity estimation. These advancements are detailed in our paper [SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistake.](https://arxiv.org/abs/2212.09305).
+
+### INSTRUCTSCORE (SEScore3)
+
+Our latest addition to the family, INSTRUCTScore, is a manifestation of our commitment to providing open-source, explainable evaluation metrics for text generation. It exploits explicit human instruction and the vast implicit knowledge of GPT4, fine-tuning a LLAMA model to develop an evaluation metric capable of delivering a diagnostic report consistent with human judgment. These advancements are detailed in our paper [INSTRUCTSCORE: Towards Explainable Text Generation Evaluation with Automatic Feedback.](https://arxiv.org/pdf/2305.14282.pdf).
 * * *
-
-## How to use SEScore
-
-We hosted our SEScore metric and running instructions on HuggingFace: [https://huggingface.co/spaces/xu1998hz/sescore](https://huggingface.co/spaces/xu1998hz/sescore)
-
-### Installation and usage
-```
-pip install -r requirements.txt
-```
-
-Minimal example (evaluating English text generation)
-```python
-import evaluate
-sescore = evaluate.load("xu1998hz/sescore")
-score = sescore.compute(
-    references=['sescore is a simple but effective next-generation text evaluation metric'],
-    predictions=['sescore is simple effective text evaluation metric for next generation']
-)
-}
-```
-*SEScore* compares a list of references (gold translation/generated output examples) with a same-length list of candidate generated samples. Currently, the output range is learned and scores are most useful in relative ranking scenarios rather than absolute comparisons. We are producing a series of rescaling options to make absolute SEScore-based scaling more effective.
-
-### Available pre-trained models
-Currently, the following language/model pairs are available:
-
-| Language | pretrained data | pretrained model link |
-|----------|-----------------|-----------------------|
-| English  | MT              | [xu1998hz/sescore_english_mt](https://huggingface.co/xu1998hz/sescore_english_mt) |
-| German   | MT              | [xu1998hz/sescore_german_mt](https://huggingface.co/xu1998hz/sescore_german_mt) |
-| English  | webNLG17        | [xu1998hz/sescore_english_webnlg17](https://huggingface.co/xu1998hz/sescore_english_webnlg17) |
-| English  | CoCo captions   | [xu1998hz/sescore_english_coco](https://huggingface.co/xu1998hz/sescore_english_coco) |
-
-Please contact repo maintainer Wenda Xu to add your models!
-
-## Limitations
-
-*SEScore* is trained on synthetic data in-domain. 
-Although this data is generated to simulate user-relevant errors like deletion and spurious insertion, it may be limited in its ability to simulate humanlike errors.
-Model applicability is domain-specific (e.g., CoCo caption-trained model will be better for captioning than MT-trained).
-
-We are in the process of producing and benchmarking general language-level *SEScore* variants.
-
-## Citation
-
-If you find our work useful, please cite the following:
 
 ```bibtex
 @inproceedings{xu-etal-2022-not,
@@ -67,6 +29,18 @@ If you find our work useful, please cite the following:
   month={dec},
   year={2022},
   url={https://arxiv.org/abs/2210.05035}
+}
+@article{xu2022sescore2,
+  title={SEScore2: Retrieval Augmented Pretraining for Text Generation Evaluation},
+  author={Xu, Wenda and Qian, Xian and Wang, Mingxuan and Li, Lei and Wang, William Yang},
+  journal={arXiv preprint arXiv:2212.09305},
+  year={2022}
+}
+@article{xu2023instructscore,
+  title={Instructscore: Towards explainable text generation evaluation with automatic feedback},
+  author={Xu, Wenda and Wang, Danqing and Pan, Liangming and Song, Zhenqiao and Freitag, Markus and Wang, William Yang and Li, Lei},
+  journal={arXiv preprint arXiv:2305.14282},
+  year={2023}
 }
 ```
 
