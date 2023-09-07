@@ -47,3 +47,12 @@ We are in the process of producing and benchmarking general language-level *SESc
 ## Citation
 
 If you find our work useful, please cite the following:
+
+    @misc{xu2022errors,
+          title={Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis}, 
+          author={Wenda Xu and Yilin Tuan and Yujie Lu and Michael Saxon and Lei Li and William Yang Wang},
+          year={2022},
+          eprint={2210.05035},
+          archivePrefix={arXiv},
+          primaryClass={cs.CL}
+    }
