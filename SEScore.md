@@ -1,6 +1,6 @@
 ---
 layout: default
-title: SEScore
+title: sescore
 description: Stratified Error Synthesis Score
 ---
 ## How to use SEScore
