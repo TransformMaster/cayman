@@ -35,11 +35,11 @@ scores_ls = scorer.score(refs, outs, 1)
 
 If you find our work useful, please cite the following:
 
-  @misc{xu2023sescore2,
-        title={SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes}, 
-        author={Wenda Xu and Xian Qian and Mingxuan Wang and Lei Li and William Yang Wang},
-        year={2023},
-        eprint={2212.09305},
-        archivePrefix={arXiv},
-        primaryClass={cs.CL}
-  }
+    @misc{xu2023sescore2,
+          title={SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes}, 
+          author={Wenda Xu and Xian Qian and Mingxuan Wang and Lei Li and William Yang Wang},
+          year={2023},
+          eprint={2212.09305},
+          archivePrefix={arXiv},
+          primaryClass={cs.CL}
+    }
