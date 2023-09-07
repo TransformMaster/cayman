@@ -17,10 +17,6 @@ Its effectiveness over prior methods like BLEU, BERTScore, BARTScore, PRISM, COM
 ### SEScore2
 
 Building upon the solid foundation laid by SEScore, we then introduced SEScore2. This unsupervised model further innovates by synthesizing realistic model mistakes through the perturbation of sentences retrieved from a corpus. A key strength of SEScore2 lies in its flexibility to be extended to numerous languages, while simultaneously offering trustworthy severity estimation. These advancements are detailed in our paper [SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistake.](https://arxiv.org/abs/2212.09305).
-
-### INSTRUCTSCORE (SEScore3)
-
-Our latest addition to the family, INSTRUCTScore, is a manifestation of our commitment to providing open-source, explainable evaluation metrics for text generation. It exploits explicit human instruction and the vast implicit knowledge of GPT4, fine-tuning a LLAMA model to develop an evaluation metric capable of delivering a diagnostic report consistent with human judgment. These advancements are detailed in our paper [INSTRUCTSCORE: Towards Explainable Text Generation Evaluation with Automatic Feedback.](https://arxiv.org/pdf/2305.14282.pdf).
 * * *
 
 ```bibtex
