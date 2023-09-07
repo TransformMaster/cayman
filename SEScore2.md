@@ -1,21 +1,18 @@
 ---
 layout: default
-title: sescore2
-description: Stratified Error Synthesis Score
+title: SEScore2
+description: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes
 ---
-
-# SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes
 
 SESCORE2, is a SSL method to train a metric for general text generation tasks without human ratings. We develop a technique to synthesize candidate sentences with varying levels of mistakes for training. To make these self-constructed samples realistic, we introduce retrieval augmented synthesis on anchor text; It outperforms SEScore in four text generation tasks with three languages (The overall kendall correlation improves 14.3%).
 
 ### Author Email: wendaxu@cs.ucsb.edu
 
-
+## How to use SEScore
 ### Install all dependencies:
 ```
 pip install SEScore2
 ```
-
 
 ### Instructions to score sentences using SEScore2:
 
@@ -33,3 +30,16 @@ outs = ["Jova set to become Western Hemisphere's most powerful hurricane in 2023
 
 scores_ls = scorer.score(refs, outs, 1)
 ```
+
+## Citation
+
+If you find our work useful, please cite the following:
+
+  @misc{xu2023sescore2,
+        title={SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes}, 
+        author={Wenda Xu and Xian Qian and Mingxuan Wang and Lei Li and William Yang Wang},
+        year={2023},
+        eprint={2212.09305},
+        archivePrefix={arXiv},
+        primaryClass={cs.CL}
+  }
