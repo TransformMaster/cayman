@@ -34,7 +34,7 @@ scores_ls = scorer.score(refs, outs, 1)
 
 ## GitHub Page
 
-If you want to reproduce the synthetic data, and use the original XLM/RemBERT SEScore2 weight, please refer to the GitHub repository: https://github.com/xu1998hz/SEScore2
+If you want to reproduce the synthetic data, and use the original XLM/RemBERT SEScore2 weight, please refer to the GitHub repository: [https://github.com/xu1998hz/SEScore2](https://github.com/xu1998hz/SEScore2)
 
 ### Install all dependencies for GitHub version:
 
