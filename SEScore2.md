@@ -53,7 +53,7 @@ mtme --download  # Puts ~1G of data into $HOME/.mt-metrics-eval.
 
 ### Score sentences using SEScore2 for GitHub version:
 
-Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
+Download weights and data from Google Drive [https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing](https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
 
 We support five languages: English, German, Spanish, Chinese and Japanese:
 
