@@ -38,7 +38,6 @@ If you want to reproduce the synthetic data, and use the original XLM/RemBERT SE
 
 ### Install all dependencies for GitHub version:
 
-````
 ```
 pip install -r requirement/requirements.txt
 
@@ -51,15 +50,13 @@ pip install .
 alias mtme='python3 -m mt_metrics_eval.mtme'
 mtme --download  # Puts ~1G of data into $HOME/.mt-metrics-eval.
 ```
-````
 
 ### Score sentences using SEScore2 for GitHub version:
 
 Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
 We support five languages: English, German, Spanish, Chinese and Japanese.
 
-````
-```
+```python
 from SEScore2 import SEScore2
 from train.regression import *
 
